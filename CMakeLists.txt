@@ -225,3 +225,8 @@ if(BUILD_TESTS)
 	enable_testing()
 	add_subdirectory(test)
 endif()
+
+add_library(interceptor SHARED interceptor.cpp)
+target_link_libraries(interceptor PRIVATE syscall_intercept_static fmt)
+
+add_executable(simple_open simple_open.cpp)
